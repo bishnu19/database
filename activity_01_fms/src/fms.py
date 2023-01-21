@@ -2,6 +2,7 @@
 CS3810: Principles of Database Systems
 Instructor: Thyago Mota
 Description: A simple FMS for employees
+Thank you professor.
 """
 
 class Entity: 
