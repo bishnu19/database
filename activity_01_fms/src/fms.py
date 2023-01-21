@@ -3,6 +3,9 @@ CS3810: Principles of Database Systems
 Instructor: Thyago Mota
 git practice is going on.
 """
+"""
+I forgot python and so need to work hard.
+"""
 
 class Entity: 
     """
