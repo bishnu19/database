@@ -1,0 +1,41 @@
+Connecting Docker:
+docker pull postgres
+
+C:\Users\bhusa\Desktop\CS3810\vsPractice
+
+vsPractice:
+docker run --rm --name postgres -e POSTGRES_PASSWORD=135791 -v C:\\Users\\bhusa\\Desktop\\CS3810\\vsPractice\\postgres:/var/lib/postgresql/data postgres
+
+database: ( C:\Users\bhusa\Desktop\CS3810\database\database\postgres )
+
+docker run --rm --name postgres -e POSTGRES_PASSWORD=135791 -v C:\\Users\\bhusa\\Desktop\\CS3810\\database\\database\\postgres:/var/lib/postgresql/data postgres
+
+// connect in virtual environment 
+docker run --rm --name postgres -e POSTGRES_PASSWORD=135791 -v C:\\Users\\bhusa\\Desktop\\CS3810\\database\\database\\postgres:/var/lib/postgresql/data -p 5432:5432 postgres
+
+// execute this command in another terminal
+docker exec -it postgres psql -U postgres
+
+// copy from csv file
+\copy Astronauts
+(lastName, firstName, suffix, gender, birth, city, state, country, status, daysInSpace, flights) from /var/lib/postgresql/data/astronauts.csv DELIMITER ',' CSV HEADER;
+
+CREATE DATABASE test;
+
+\c databasename ->  uses the database
+\l => lists all the databases
+
+Use the following commands to display all employees:
+
+\c test 
+
+SELECT * FROM Employees;
+
+CREATE TABLE Employees (
+ id INT PRIMARY KEY,
+ name VARCHAR(35) NOT NULL,
+ sal INT ); 
+
+INSERT INTO Employees VALUES
+ (101, 'Sam Mai Tai', 35000),
+ (202, 'Morbid Mojito', 65350); 

@@ -1,6 +1,6 @@
 -- CS3810: Principles of Database Systems
 -- Instructor: Thyago Mota
--- Student(s): 
+-- Student(s): Bishnu Bhusal & Gaulochan Pradhan
 -- Description: Star Wars Database (SQL Competition)
 
 CREATE DATABASE starwars;
@@ -154,10 +154,15 @@ INSERT INTO FilmRatings VALUES (6716,1,2), (6716,2,5), (29200,2,4), (29200,4,5),
 (76634,1,4), (76634,2,2), (76634,3,3), (76634,4,2), (76634,5,3), (47673,1,4), (47673,2,2), (47673,3,4), (47673,4,1), (47673,5,4), (62217,1,2), (62217,3,1), (62217,4,1), (62217,5,5), (68276,1,2), (68276,2,3), (68276,3,1), (68276,4,5), (68276,5,3);
 
 -- a) the number of star wars films
+SELECT COUNT(*) FROM Films;
 
 -- b) the age group (description) that has the most fans
+SELECT COUNT(age) AS Total FROM fans GROUP BY age ORDER BY Total DESC LIMIT 1;
+
 
 -- c) the education level (description) with the least number of fans
+
+
 
 -- d) the name of the star wars characters in alphabetical order
 

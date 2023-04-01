@@ -88,7 +88,6 @@ Logoff from postgres and repeat the insert statement, but now logged in as **hr_
 ```
 docker exec -it postgres psql -d hr -U hr_admin -W
 ```
-
 There is much more about user access control. For example, you can grant access to a user on different object types, not only on a table but to a whole database, for example. There are also many other grant privilege levels other than the ones described here.
 
 # Further Practice

@@ -11,6 +11,8 @@ Once you have **virtualenv** installed, you can setup a virtual environment for 
 ```
 virtualenv build
 cd build
+Scripts\activate.bat
+on mac
 source bin/activate
 ```
 

@@ -1,0 +1,37 @@
+// CS3810: Principles of Database Systems
+// Instructor: Thyago Mota
+// Student(s): Bishnu Bhusal & Gaulochan Pradhan
+// Description: ERD for the In-N-Out Store
+
+erdiagram innout
+notation=crowsfoot
+
+entity Customers {
+    id key 
+    name 
+    gender
+}
+
+entity Items {
+    code key 
+    desc 
+    current_price 
+}
+
+entity Categories {
+    code key 
+    description 
+}
+
+
+relationship buys {
+    Customers[0..N] -> Items[0..N]
+    quantity 
+    sale_price 
+    date
+    time key
+}
+
+ relationship has {
+    Items[0..N] -> Categories[0..1]
+}

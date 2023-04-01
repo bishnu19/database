@@ -118,9 +118,27 @@ WHERE sal > (
 
 -- TODO: m) list the left outer join of Employees and Departments (use the ON clause to match by department code); how does the result of this query differs from query ‘i’?
 -- done
+SELECT * FROM Employees a
+LEFT JOIN Departments B
+ON A.deptCode = B.code;
 
 -- TODO: n) from query ‘m’, how would you do the left anti-join?
+-- Option 1: ( Better because employees have the foreign key)
+SELECT * FROM Employees WHERE deptCode IS NULL;
+
+-- Option 2: (do the left outer join and filter)
+SELECT * FROM Employees A 
+LEFT JOIN Departments B 
+ON A.deptCode  = B.code 
+WHERE B.code IS NULL;
 
 -- TODO: o) show the number of employees per department.
+SELECT deptCode, COUNT(deptCode) AS Total FROM employees GROUP BY deptCode;
+-- other way 
+SELECT "desc", COUNT(*) AS Total 
+FROM Employees A 
+INNER JOIN Departments B 
+ON A.deptCode = B.code 
+GROUP BY B.code;
 
 -- TODO: p) same as query ‘o’ but I want to see the description of each department (not just their codes).
