@@ -30,32 +30,30 @@ password=135791
 Then, run the code below just to check if you are able to connect to postgres via SQL Alchemy with psycopg2. 
 
 ```
-import psycopg2
 import configparser as cp
+from sqlalchemy import create_engine
+from sqlalchemy.engine import URL
 
 config = cp.RawConfigParser()
 config.read('ConfigFile.properties')
 params = dict(config.items('db'))
 
-conn = psycopg2.connect(**params)
-if conn: 
+url = URL.create(
+    "postgresql+psycopg2",
+    username=params['user'],
+    password=params['password'],
+    host=params['host'],
+    port=params['port'],
+    database=params['dbname']
+)
+
+engine = create_engine(url)
+if engine: 
     print('Connection to Postgres database ' + params['dbname'] + ' was successful!')
-
-    # TODO: ask the user for a hotel's name and then using prepared statement 
-    # show the information about the hotel
-    name = input("? ")
-    cur = conn.cursor()
-    sql = "SELECT * FROM hotels WHERE name = '%s'"
-    cur.execute(sql % (name))
-    for row in cur:
-        print(row)  
-
-
-    print('Bye!')
-    conn.close()
+    
 ```
 
-If that worked: GREAT! Let's continue. Usually we write each class on its own file, but for simplification let's have everything in the same script. 
+If that works: GREAT! Let's continue. Usually we write each class on its own file, but for simplification let's have everything in the same script. 
 
 ```
 import configparser as cp

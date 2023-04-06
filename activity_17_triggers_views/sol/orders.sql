@@ -56,9 +56,40 @@ CREATE FUNCTION check_qtt_before_insert() RETURNS TRIGGER
         END;
     $$;
 
-
 CREATE TRIGGER items_qtt_at_least_1
     BEFORE INSERT ON Items
     FOR EACH ROW
     EXECUTE PROCEDURE check_qtt_before_insert();
 
+INSERT INTO Items VALUES (101, 1, -1);  -- trigger!
+INSERT INTO Items VALUES (101, 2, 10); 
+INSERT INTO Items VALUES (101, 3, 5); 
+INSERT INTO Items VALUES (202, 4, 200); 
+INSERT INTO Items VALUES (202, 6, 10); 
+INSERT INTO Items VALUES (303, 7, 0); -- trigger!
+INSERT INTO Items VALUES (303, 1, 10); 
+INSERT INTO Items VALUES (404, 4, 1); 
+INSERT INTO Items VALUES (404, 7, 3); 
+
+CREATE VIEW OrdersTotalByMonth AS
+SELECT EXTRACT(YEAR FROM date) AS year, 
+EXTRACT(MONTH FROM date) AS month, 
+SUM(qtt * price) AS total
+FROM Orders A 
+INNER JOIN Items B 
+ON A.number = B.order_number
+INNER JOIN Products C 
+ON B.product_id = C.id
+GROUP BY (year, month)
+ORDER BY year, month;
+
+CREATE VIEW OrdersTotalByYear AS
+SELECT EXTRACT(YEAR FROM date) AS year,
+SUM(qtt * price) AS total
+FROM Orders A 
+INNER JOIN Items B 
+ON A.number = B.order_number
+INNER JOIN Products C 
+ON B.product_id = C.id
+GROUP BY (year)
+ORDER BY year;
