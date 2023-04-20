@@ -34,7 +34,7 @@ To make a new reservation, one has to first gather all parameters needed for a r
 * the building abbreviation, and 
 * the room number.
 
-When making a new reservation it is necessary to define a transaction because more than one statement needs to be executed: 
+When making a new reservation it is necessary to define a transaction because more than one statement need to be executed: 
 
 * first, the system needs to check if the room is available for the desired date and period of time; 
 * if the room is indeed available, the new reservation must be entered in the system (to secure the booking);  
@@ -85,4 +85,9 @@ booking.zip
 
 # Rubric
 
-TBD
+```
++15 ReservationsView
++20 List Reservations
++35 New Reservation
++30 Delete Reservation
+```
