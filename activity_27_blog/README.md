@@ -75,4 +75,25 @@ use blog;
 // list all posts from 'Morbid Mojito' that had less than 3 likes 
 
 // list all posts from 'Morbid Mojito' that had less than 3 likes or didn't have any likes at all 
+
+// list all posts that have the word 'you' in its content 
+// hint: use the $regex query operator 
+
+// list all posts of an author whose name ends with the letter 'o' or 'O' 
+// hint: use the $regex query operator 
+
+// list all posts that have the tag 'optimist' 
+// hint: search the documentation for how to “query an array” 
+
+// list all posts that have the tags 'optimist' and 'life' 
+// hint: you might want to try the $all query operator or just use the $and query operator 
+
+// list all posts that have the tags 'optimist' or 'life' 
+// hint: use the $or query operator 
+
+// list all posts that do not have the tag 'age' 
+// hint: use the $nin query operator 
+
+// list all posts that only have one tag 
+// hint: use the $size query operator 
 ```
